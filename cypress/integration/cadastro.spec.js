@@ -20,7 +20,8 @@ describe('Cadastro', ()=>{
                 bairro: 'Vila Sônia',
                 cidade_uf: 'Itaquaquecetuba/SP',
             },
-            metodo_entrega: 'Moto'
+            metodo_entrega: 'Moto',
+            cnh: 'cnh-digital.jpg'
         }
 
         cy.get('input[name="name"]').type(entregador.nome)
@@ -40,6 +41,7 @@ describe('Cadastro', ()=>{
 
         cy.contains('.delivery-method li', entregador.metodo_entrega).click()
         
+        cy.get('input[accept^="image"]').attachFile('/images/' + entregador.cnh)
 
     })
     
