@@ -1,0 +1,8 @@
+node_modules
+cypress/downloads
+cypress/plugins
+cypress/support
+cypress.json
+package-lock.json
+package.json
+gitignore
