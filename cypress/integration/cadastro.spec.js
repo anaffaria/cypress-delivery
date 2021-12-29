@@ -8,17 +8,17 @@ describe('Cadastro', ()=>{
         cy.get('#page-deliver form h1').should('have.text', 'Cadastre-se para  fazer entregas')
 
         var entregador = {
-            nome: 'Fernando Papito',
+            nome: 'Ana Caroline',
             cpf: '00000001414',
             email: 'ana@gmail.com',
             whatsapp:'11989863523',
             endereco:{
-                cep: '08570350',
-                rua: 'Rua Mooca',
-                numero: '1000',
+                cep: '04534011',
+                rua: 'Rua Joaquim Floriano',
+                numero: '100',
                 complemento: 'Ap 142',
-                bairro: 'Vila Sônia',
-                cidade_uf: 'Itaquaquecetuba/SP',
+                bairro: 'Itaim Bibi',
+                cidade_uf: 'São Paulo/SP',
             },
             metodo_entrega: 'Moto',
             cnh: 'cnh-digital.jpg'
@@ -42,6 +42,10 @@ describe('Cadastro', ()=>{
         cy.contains('.delivery-method li', entregador.metodo_entrega).click()
         
         cy.get('input[accept^="image"]').attachFile('/images/' + entregador.cnh)
+        cy.get('form button[type="submit"]').click()
+
+        const expectedMessage = 'Recebemos os seus dados. Fique de olho na sua caixa de email, pois e em breve retornamos o contato.'
+        cy.get('.swal2-html-container.swal2-html-container').should('have.text', expectedMessage)
 
     })
     
