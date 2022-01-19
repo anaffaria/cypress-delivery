@@ -36,8 +36,15 @@ class SignupPage{
     }
 
     alertMessageShouldBe(expectedMessage){
-        cy.get(".alert-error").should("have.text", expectedMessage);
+
+        // a função .get só obtém um unico elemento
+        //cy.get(".alert-error").should("have.text", expectedMessage);
+
+        //combina localizadores, seletor com texto
+        cy.contains('.alert-error', expectedMessage).should('be.visible')
     }
+
+
 }
 
 export default new SignupPage

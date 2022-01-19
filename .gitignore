@@ -1,5 +1,6 @@
 node_modules
 cypress.json
+cypress/videos
 package-lock.json
 package.json
 gitignore
